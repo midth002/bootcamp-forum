@@ -17,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/midth002/bootcamp-forum/issues"
   },
-  "homepage": "https://github.com/midth002/bootcamp-forum#readme"
+  "homepage": "https://github.com/midth002/bootcamp-forum#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.5",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.0"
+  }
 }
