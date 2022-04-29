@@ -1,0 +1,21 @@
+{
+  "name": "bootcamp-forum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midth002/bootcamp-forum.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/midth002/bootcamp-forum/issues"
+  },
+  "homepage": "https://github.com/midth002/bootcamp-forum#readme"
+}
