@@ -35,22 +35,6 @@ Post.init (
                 key:'id'
             },
         },
-        // post_type_id: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     references: {
-        //         model: 'post_type',
-        //         key: 'id'
-        //     },
-        // },
-        // comment_id: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     references: {
-        //         model: 'comments',
-        //         key: 'id'
-        //     },
-        // },
     },
 
     {
