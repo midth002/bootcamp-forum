@@ -27,6 +27,11 @@ Post.init (
                 len: [1, 250]
             }
         },
+        //This will be one of several options given in a dropdown on the post page.
+        topic: {  
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
