@@ -1,14 +1,13 @@
 const loginHandler = async (event) => {
     event.preventDefault();
-    // need id's for theese
-    const email = $('#email').trim();
-    const username = $('#user_name').trim();
-    const password = $('#password').trim();
+    // need id's for theese    
+    const usernameLog = $('#login-username').trim();
+    const passwordLog = $('#login-password').trim();
     //
     if(email && password) {
         const response = await fetch('/api/login', {
             method: 'POST',
-            body: JSON.stringify({ email, username, password }),
+            body: JSON.stringify({ usernameLog, passwordLog }),
             headers: { 'Content-Type': 'application/json '},
         });
         if (response.ok) {
