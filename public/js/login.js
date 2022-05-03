@@ -1,17 +1,18 @@
 const loginHandler = async (event) => {
     event.preventDefault();    
-    const usernameLog = $('#login-username').trim();
-    const passwordLog = $('#login-password').trim();
+    const username = $('#login-username').trim();
+    const password = $('#login-password').trim();
     // if email and password have been entered
-    if(email && password) {
+    if(username && password) {
         const response = await fetch('/api/login', {
             method: 'POST',
-            body: JSON.stringify({ usernameLog, passwordLog }),
+            body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json '},
         });
         if (response.ok) {
             // replace login page with home page
-            document.location.replace('/');
+            // document.location.replace('/');
+            alert('success')
         } else {
             alert('You are unable to login');
         }

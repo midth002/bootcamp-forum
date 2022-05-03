@@ -4,10 +4,10 @@ const { User } = require('../../models');
 router.post('/', async (req, res) => {
   try {
     // Find the user who matches with the username in the database
-    const user = await User.findOne({ where: {user_name: req.body.user_name }});
+    const user = await User.findOne({ where: {email: req.body.email }});
 
     // If there is no match with the username, send a incorrect message to the user and have them retry
-    if (!user) {
+    if (!email) {
       res.status(400).json({ message: 'Incorrect username or password, please try again' });
       return;
     }
