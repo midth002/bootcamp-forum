@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
     //   res.json(User);
     // });
 
-    res.status(200).json(user)
+    res.status(200).json({Message : `Hello`})
 
   } catch (error) {
     res.status(400).json(error);
