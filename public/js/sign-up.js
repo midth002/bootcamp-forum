@@ -3,11 +3,14 @@ const signUpHandler = async (event) => {
     const usernameSign = $('#signup-username');
     const emailSign = $('#signup-email');
     const passwordSign = $('#signup-password');
+    const first_nameSign = $('#sigup-first_name'); 
+    const last_nameSign = $('#signup-last_name') 
+    const bootcampSign = $('#signup-bootcamp')
     // if username, email, and password entered
-    if(usernameSign && emailSign && passwordSign) {
-        const response = await fetch('/api/login', {
+    if(first_nameSign && last_nameSign && bootcampSign && usernameSign && emailSign && passwordSign) {
+        const response = await fetch('/api/signup', {
             method: 'POST',
-            body: JSON.stringify({ usernameSign, emailSign, passwordSign }),
+            body: JSON.stringify({ first_nameSign, last_nameSign, bootcampSign, usernameSign, emailSign, passwordSign }),
             headers: {'Content-Type': 'application/json'},
         });
         if(response.ok){
@@ -18,6 +21,5 @@ const signUpHandler = async (event) => {
         }
     }
 };
-document
-    $('#signup-form')
-    .on('submit', signUpHandler)
+$('#signup-form').on('submit', signUpHandler)
+$('#signup-form').on('click', document.location.replace('/api/login'))
