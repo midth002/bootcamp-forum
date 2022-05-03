@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const messageRoutes = require('./messageRoutes');
+const loginRoutes = require('./loginRoutes');
 
-router.use('/messages', messageRoutes);
-
+router.use('/login', loginRoutes);
 module.exports = router;
