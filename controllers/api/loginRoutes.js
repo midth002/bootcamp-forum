@@ -4,7 +4,7 @@ const { User } = require('../../models');
 router.post('/', async (req, res) => {
   try {
     // Find the user who matches with the username in the database
-    const user = await User.findOne({ where: { user_name: req.body.user_name } });
+    const user = await User.findOne({ where: {user_name: req.body.user_name }});
 
     // If there is no match with the username, send a incorrect message to the user and have them retry
     if (!user) {
@@ -15,6 +15,7 @@ router.post('/', async (req, res) => {
     // Now verify the password the user has put in and check in the database if this password coincides with the username 
     const validPw = await user.checkPassword(req.body.password);
 
+    // const validPw = await User.findOne({ where: {password: req.body.password }});
     // // If the password doesn't exist, then send a error message of wrong password and have them retry.
     if (!validPw) {
       res.status(400).json({ message: 'Incorrect password, please try again' });
@@ -22,14 +23,13 @@ router.post('/', async (req, res) => {
     }
 
     // Session variables based on the current logged in user
-    // req.session.save(() => {
-    //   req.session.user_id = user.id;
-    //   req.session.logged_in = true;
+    req.session.save(() => {
+      req.session.user_id = user.id;
+      req.session.logged_in = true;
       
-    //   res.json(User);
-    // });
+      res.json(User);
+    });
 
-    res.status(200).json({Message : `Hello`})
 
   } catch (error) {
     res.status(400).json(error);
