@@ -1,9 +1,8 @@
 const loginHandler = async (event) => {
-    event.preventDefault();
-    // need id's for theese    
+    event.preventDefault();    
     const usernameLog = $('#login-username').trim();
     const passwordLog = $('#login-password').trim();
-    //
+    // if email and password have been entered
     if(email && password) {
         const response = await fetch('/api/login', {
             method: 'POST',
@@ -18,7 +17,6 @@ const loginHandler = async (event) => {
         }
     }
 };
-// need id/class and type of button
 document    
     $('#login-form')
     .on('submit', loginHandler);
