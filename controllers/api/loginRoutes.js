@@ -18,24 +18,24 @@ router.post('/', async (req, res) => {
     // const validPw = await User.findOne({ where: {password: req.body.password }});
     // // If the password doesn't exist, then send a error message of wrong password and have them retry.
     if (!validPw) {
-      res.status(400).json({ message: 'Incorrect password, please try again' });
+      res.status(401).json({ message: 'Incorrect password, please try again' });
       return;
     }
 
     // Session variables based on the current logged in user
-    // req.session.save(() => {
-    //   req.session.user_id = user.id;
-    //   req.session.logged_in = true;
+    req.session.save(() => {
+      req.session.user_id = user.id;
+      req.session.logged_in = true;
       
-    //   res.json(User);
-    // });
+      res.json(User);
+    });
     // 
     res.status(200).json({message: `Hello`});
     res.render('home')
 
 
   } catch (error) {
-    res.status(400).json(error);
+    res.status(500).json(error);
     console.log(error)
   }
 });
@@ -71,15 +71,15 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-// router.post('/logout', (req, res) => {
-//   if (req.session.logged_in) {
-//     // Remove the session variables
-//     req.session.destroy(() => {
-//       res.status(204).end();
-//     });
-//   } else {
-//     res.status(404).end();
-//   }
-// });
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    // Remove the session variables
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 
 module.exports = router;
