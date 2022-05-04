@@ -1,4 +1,34 @@
-<button type="button" class="btn btn-primary post-button">+ New Post</button>
+<div class="modal" tabindex="-1" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Post Title" id="post-title">
+          </div>
+      </div>
+      <div class="modal-body">
+        <form id="genre" class="field is-grouped is-grouped-centered" >  
+                <select id = "myList" >   
+                    <option value="">Topic</option>  
+                    <option value="jobOffers"> Job Offers </option>  
+                    <option value="Interviews"> Interviews </option>  
+                    <option value="Bootcamp"> Bootcamp </option> 
+                </select>  
+        </form>
+        <div class="input-group">
+          <textarea class="form-control" aria-label="With textarea" placeholder="Post Body" id="post-body"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  id="myInput add-post">Add Post</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+  Add New Post
+</button>
 {{#each messages}}
 <div class="card post-card" style="width: 18rem;">
   <div class="card-body">
@@ -9,4 +39,9 @@
   </div>
 </div>
 {{/each}}
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 <script src="/js/post.js"></script>
