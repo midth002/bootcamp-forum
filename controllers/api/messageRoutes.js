@@ -25,7 +25,7 @@ router.get('/:type', async (req, res) => {
 });
 
 
-// Create a post. I'm not sure if the 
+// Create a post. I'm not sure if the ... will work.
 router.post('/', async (req, res) => {
     try {
         const message = await Post.create({
