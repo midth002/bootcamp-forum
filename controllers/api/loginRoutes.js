@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const emailer = require('../../utils/nodemailer');
 
 router.post('/', async (req, res) => {
   try {
@@ -56,6 +57,7 @@ router.post('/signup', async (req, res) => {
           ...req.body, 
         });
         //figure out how to use nodemailer
+        emailer(req.body.email).catch(console.error);
         res.json({message: `User created`})
       } catch(err){
         res.status(500).json(err)
