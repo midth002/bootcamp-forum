@@ -2,13 +2,17 @@ const router = require('express').Router();
 const { User, Post, Comments } = require('../../models');
 
 router.get('/', async (req, res) => {
-    try {
-        const messages = await Post.findAll();
-        res.status(200).json(messages);
-    } catch (err) {
-        console.log(err);
-        res.status(400).json(err);
+    try{
+        const messageData = await Post.findAll().catch((err) => { 
+            res.json(err);
+          });
+            const messages = messageData.map((post) => post.get({ plain: true }));
+            res.render('posts', { messages });
+
+    }catch (err) {
+        res.status(500).json(err);
     }
+        
 });
 
 router.get('/:type', async (req, res) => {
