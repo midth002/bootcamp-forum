@@ -1,10 +1,10 @@
 const { Post } = require('../models');
-// const auth = require('../utils/auth');
+const auth = require('../utils/auth');
 
 const router = require('express').Router();
 // const { User, Post } = require('../models');
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
     try {
       // const dbPostData = await Post.findAll({
       //   include: [
@@ -18,6 +18,8 @@ router.get('/', async (req, res) => {
       // const posts = dbPostData.map((post) =>
       //   post.get({ plain: true })
       // );
+
+    
   
       res.render('home');
     } catch (err) {
@@ -45,7 +47,7 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+   res.render('login');
 });
 
   module.exports = router;
