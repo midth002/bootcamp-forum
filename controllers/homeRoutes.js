@@ -4,7 +4,7 @@ const auth = require('../utils/auth');
 const router = require('express').Router();
 // const { User, Post } = require('../models');
 
-router.get('/', auth, async (req, res) => {
+router.get('/', auth,  async (req, res) => {
     try {
       // const dbPostData = await Post.findAll({
       //   include: [
@@ -19,9 +19,13 @@ router.get('/', auth, async (req, res) => {
       //   post.get({ plain: true })
       // );
 
+      
     
-  
       res.render('home');
+
+
+    
+      
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -42,6 +46,7 @@ try {
 
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
+  
   if (req.session.logged_in) {
     res.redirect('/');
     return;
