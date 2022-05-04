@@ -11,11 +11,11 @@ const loginHandler = async (event) => {
         });
         if (response.ok) {
             // replace login page with home page
-            document.location.replace('/');
-            
+            document.location.replace('/');            
         } else {
             alert('You are unable to login');
         }
     }
 };
 $('#login-form').on('submit', loginHandler);
+$('#login-form').on('click', document.location.replace('/signup'))
