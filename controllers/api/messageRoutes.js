@@ -24,4 +24,18 @@ router.get('/:type', async (req, res) => {
     }
 });
 
+
+// Create a post. I'm not sure if the 
+router.post('/', async (req, res) => {
+    try {
+        const message = await Post.create({
+            ...req.body,
+            user_id: req.session.user_id 
+        });
+        res.json({message: 'Post created'})
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
 module.exports = router;
