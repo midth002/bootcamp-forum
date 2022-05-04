@@ -39,7 +39,7 @@ Post.init (
                 model: 'user',
                 key:'id'
             },
-        },
+        },  
     },
 
     {
@@ -48,7 +48,7 @@ Post.init (
         freezeTableName: true,
         underscored: true,
         modelName: 'post',
-    }
+    },
 );
 
 
