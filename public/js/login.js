@@ -32,7 +32,7 @@ const loginHandler = async (event) => {
         //     alert('You are unable to login');
         // }
     }
-};
+}
 $('#login-form').on('submit', loginHandler);
 } catch (error) {
     console.log(error)
