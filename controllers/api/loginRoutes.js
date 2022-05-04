@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const emailer = require('../../utils/nodemailer');
 
 router.post('/', async (req, res) => {
   try {
@@ -18,7 +19,7 @@ router.post('/', async (req, res) => {
     // const validPw = await User.findOne({ where: {password: req.body.password }});
     // // If the password doesn't exist, then send a error message of wrong password and have them retry.
     if (!validPw) {
-      res.status(400).json({ message: 'Incorrect password, please try again' });
+      res.status(401).json({ message: 'Incorrect password, please try again' });
       return;
     }
 
@@ -35,7 +36,7 @@ router.post('/', async (req, res) => {
 
 
   } catch (error) {
-    res.status(400).json(error);
+    res.status(500).json(error);
     console.log(error)
   }
 });
@@ -56,6 +57,7 @@ router.post('/signup', async (req, res) => {
           ...req.body, 
         });
         //figure out how to use nodemailer
+        emailer(req.body.email).catch(console.error);
         res.json({message: `User created`})
       } catch(err){
         res.status(500).json(err)
