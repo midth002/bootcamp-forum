@@ -5,7 +5,7 @@ router.get('/', async (req, res) => {
     try{
         const messageData = await Post.findAll().catch((err) => { 
             res.json(err);
-          });
+        });
             const messages = messageData.map((post) => post.get({ plain: true }));
             res.render('posts', { messages });
 
@@ -30,6 +30,7 @@ router.get('/:type', async (req, res) => {
 
 
 // Create a post. I'm not sure if the ... will work.
+// Create a post. I'm not sure if the 
 router.post('/', async (req, res) => {
     try {
         const message = await Post.create({
