@@ -1,6 +1,7 @@
 const { Post } = require('../models');
 const auth = require('../utils/auth');
 
+let logged_in;
 const router = require('express').Router();
 // const { User, Post } = require('../models');
 
@@ -18,6 +19,9 @@ router.get('/', auth, async (req, res) => {
       // const posts = dbPostData.map((post) =>
       //   post.get({ plain: true })
       // );
+
+      
+       logged_in = req.session.logged_in
       res.render('home');
 
     } catch (err) {

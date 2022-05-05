@@ -1,3 +1,5 @@
+
+
 const logout = async (event) => {
     event.preventDefault();
     const response = await fetch('/api/login/logout', {
@@ -12,5 +14,8 @@ const logout = async (event) => {
         alert('Uh-oh, something went wrong')
     }
 }
+
+
+
 
 $('#logout-div').click(logout);
