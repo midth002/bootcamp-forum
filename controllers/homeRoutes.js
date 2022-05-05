@@ -1,10 +1,11 @@
 const { Post } = require('../models');
 const auth = require('../utils/auth');
 
+let logged_in;
 const router = require('express').Router();
 // const { User, Post } = require('../models');
 
-router.get('/', auth,  async (req, res) => {
+router.get('/', auth, async (req, res) => {
     try {
       // const dbPostData = await Post.findAll({
       //   include: [
@@ -20,19 +21,16 @@ router.get('/', auth,  async (req, res) => {
       // );
 
       
-    
+       logged_in = req.session.logged_in
       res.render('home');
 
-
-    
-      
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
     }
   });
 
-router.post('/', async (req, res)=>{
+router.post('/', async (req, res)=> {
 try {
   const dbCreatePost = await Post.create({
     title: req.body.title, contents: req.body.contents, user_id: req.body.user_id
@@ -76,5 +74,7 @@ router.get('/messages',  (req, res)=> {
     res.status(500).json(err);
   }
 });
+
+
 
   module.exports = router;
