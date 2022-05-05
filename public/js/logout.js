@@ -9,7 +9,7 @@ const logout = async (event) => {
     if(response.ok) {
         document.location.replace('/login');
     } else {
-        alert('What the heck?')
+        alert('Uh-oh, something went wrong')
     }
 }
 
