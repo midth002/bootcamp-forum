@@ -6,9 +6,7 @@ router.use('/topic', byTopicRoutes);
 
 router.get('/', async (req, res) => {
     try{
-        const messageData = await Post.findAll().catch((err) => { 
-            res.json(err);
-        });
+        const messageData = await Post.findAll()
             const messages = messageData.map((post) => post.get({ plain: true }));
             res.render('home', { messages });
 
@@ -36,7 +34,9 @@ router.get('/:id', async (req, res) => {
             }
         ]
         });
-        res.status(200).json(message);
+        const singlePost = message.get({ plain: true });
+        console.log(singlePost)
+            res.render('singleposts', { singlePost });
         } catch (err) {
             console.error(err);
             res.status(400).json(err);
@@ -52,7 +52,20 @@ router.post('/', async (req, res) => {
             ...req.body,
             user_id: req.session.user_id 
         });
-        res.json({message: 'Post created'})
+        res.json({message})
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
+router.post('/:id', async (req, res) => {
+    try {
+        const message = await Comments.create({
+            ...req.body,
+            post_id: req.params.id,
+            user_id: req.session.user_id
+        });
+        res.json({message})
     } catch (err) {
         res.status(500).json(err);
     }
