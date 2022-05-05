@@ -24,21 +24,12 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link active" href="/">Home</a>
-                        <a class="nav-link" href="api/messages">Posts</a>
-                        {{#if logged_in}}
-                        <a class="nav-link" id="logout">Logout</a>
-                        {{else}}
+                        <a class="nav-link" href="api/messages">Posts</a>                                             
                         <a class="nav-link" href="/login">Login</a>
-                        {{/if}}
+                        
                     </div>
                 </div>
-            </div>
-            {{!-- <div class="dropdown">
-                <div role="button" class="dropdown-toggle" id="drop-menu" data-toggle="dropdown" aria-expanded="false">Topics</div>
-                <div class="dorpdown-menu" aria-labelledby="drop-menu">
-                    <a class="dropdown-item" href="#">Thing</a>
-                </div>
-            </div> --}}
+            </div>            
             <div class="justify-content-right">
                 <a id="logout-div" class="text-decoration-none text-muted" role="button">Logout</a>
             </div>
