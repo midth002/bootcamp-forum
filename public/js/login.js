@@ -7,7 +7,7 @@ display.text('');
 try {
 const loginHandler = async (event) => {
     event.preventDefault();    
-    const email = $('#login-username').val().trim();
+    const email = $('#login-email').val().trim();
     const password = $('#login-password').val().trim();
     // if email and password have been entered
     if(email && password) {
@@ -33,7 +33,12 @@ const loginHandler = async (event) => {
         // }
     }
 }
+
 $('#login-form').on('submit', loginHandler);
 } catch (error) {
     console.log(error)
 }
+
+$('#signupBtn').on('click', () => {
+    document.location.replace('/api/signup')
+})

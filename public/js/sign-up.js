@@ -22,4 +22,7 @@ const signUpHandler = async (event) => {
     }
 };
 $('#signup-form').on('submit', signUpHandler)
-$('#signup-form').on('click', document.location.replace('/login'))
+
+$('#loginBtn').on('click', () => {
+    document.location.replace('/login')
+})
