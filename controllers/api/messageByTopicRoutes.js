@@ -6,7 +6,17 @@ router.get('/:topic', async (req, res) => {
         const messages = await Post.findAll({
             where: {
                 topic: req.params.topic
+            },
+            include: [
+                {
+                model: Comments,
+                include: [
+                    {
+                        model: User
+                    }
+                ]
             }
+        ]
         })
         res.status(200).json(messages);
     } catch (err) {
