@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Poornima",
+        "contents": "Poornima is the best instructor around!",
+        "topic": "Bootcamp Experience",
+        "user_id": 1
+    },
+    {
+        "title": "Great Interview",
+        "contents": "I had a great interview at Vandelay Industries. I will be a junior web dev. at their laytex sales division",
+        "topic": "Job Offers",
+        "user_id": 2
+    },
+    {
+        "title": "Quick Question",
+        "contents": "How much wood would a wood chuck if a wood chuck could chuck wood?",
+        "topic": "Question",
+        "user_id": 2
+    }
+]
