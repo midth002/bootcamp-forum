@@ -16,25 +16,44 @@
             </div>            
         </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="#">BCF</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="container" <a class="navbar-brand" href="/">BCF</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link active" href="/">Home</a>
-                        <a class="nav-link" href="/api/messages">Posts</a>
-                        {{#if logged_in}}
-                        <a class="nav-link" id="logout">Logout</a>
-                        {{else}}
-                        <a class="nav-link" href="/login">Login</a>
-                        {{/if}}
-                    </div>
+                </button>        
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">                           
+                            <a class="nav-link" href="/login">Login</a>                           
+                        </li>                       
+                        {{!-- <li class="nav-item dropdown">
+                            <div class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" type="button" 
+                            data-toggle="dropdown" aria-expanded="false">
+                                Search Topics
+                            </div>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>                                
+                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="#">Something here</a>
+                            </div>
+                        </li> --}}
+                    </ul>
                 </div>
             </div>
-        </nav>
+            {{!-- <div class="dropdown">
+                <div role="button" class="dropdown-toggle" id="drop-menu" data-toggle="dropdown" aria-expanded="false">Topics</div>
+                <div class="dorpdown-menu" aria-labelledby="drop-menu">
+                    <a class="dropdown-item" href="#">Thing</a>
+                </div>
+            </div> --}}
+            <div class="justify-content-right">
+                <a id="logout-div" class="text-decoration-none text-muted" role="button">Logout</a>
+            </div>
+        </nav>        
     </header>    
     <main>
         <div class="container mt-3">

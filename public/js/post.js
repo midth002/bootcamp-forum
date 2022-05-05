@@ -29,7 +29,7 @@ try {
         if (response.ok) {
             // replace login page with home page
             //alert('Post Added')
-            document.location.replace('/api/messages');     
+            document.location.replace('/messages');     
         } else {
             //alert('You Suck');
         }
