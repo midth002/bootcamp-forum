@@ -57,7 +57,7 @@ const signUpHandler = async (event) => {
             //replaces current page with home page
             document.location.replace('/');
         } else {
-            errorMessage.text('Email already exist in our database. Try another email.')
+            errorMessage.text('Email or username already exist in our database. Try another email and username.')
             return $('error-div').append(errorMessage)
         }
     }
