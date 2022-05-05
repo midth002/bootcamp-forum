@@ -1,5 +1,8 @@
 const router = require('express').Router();
 const { User, Post, Comments } = require('../../models');
+const byTopicRoutes = require('./messageByTopicRoutes')
+//Route to /api/messages/type:
+router.use('/topic', byTopicRoutes);
 
 router.get('/', async (req, res) => {
     try{
@@ -15,16 +18,28 @@ router.get('/', async (req, res) => {
         
 });
 
-router.get('/:type', async (req, res) => {
+
+
+//get the specific message with all of its comments.
+router.get('/:id', async (req, res) => {
     try {
-        const messages = await Post.findAll({
-            where: {
-                topic: req.params.type
+        console.log("WORKING>>>");
+        const message = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                model: Comments,
+                include: [
+                    {
+                        model: User
+                    }
+                ]
             }
-        })
-        res.status(200).json(messages);
-    } catch (err) {
-        res.status(400).json(err);
+        ]
+        });
+        res.status(200).json(message);
+        } catch (err) {
+            console.error(err);
+            res.status(400).json(err);
     }
 });
 

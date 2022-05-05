@@ -1,3 +1,10 @@
+
+
+/* Not going to use this file because we are not 
+going to have a post type table. But keeping it for 
+reference until finished.
+
+
 const { Post_Type } = require('../models');
 
 const postTypeData = [
