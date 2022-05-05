@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { response } = require('express');
 const { User } = require('../../models');
 const emailer = require('../../utils/nodemailer');
 
@@ -7,31 +8,37 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    try {
+    
         // Find the user who matches with the username in the database
-        const user = await User.findOne({ where: { user_name: req.body.user_name } });
+        // const user = await User.findOne({ where: { user_name: req.body.user_name } });
 
         // If there is no match with the username, send a incorrect message to the user and have them retry
-        if (!user) {
+       
             try {
                 const createUser = await User.create({
-                    ...req.body,
+                    user_name: req.body.user_name,
+                    first_name : req.body.first_name,
+                    last_name: req.body.last_name,
+                    bootcamp_type: req.body.bootcamp_type,
+                    email: req.body.email,
+                    password: req.body.password
+
                 });
                 //figure out how to use nodemailer
+                
+                    req.session.save(() => {
+                    req.session.user_id = createUser.id;
+                    req.session.logged_in = true;
+                    res.json(createUser);
+                  });
+
                 emailer(req.body.email).catch(console.error);
-                res.json({ message: `User created` })
+                // res.json({ message: `User created` })
+                // res.redirect('/');
+                
             } catch (err) {
                 res.status(500).json(err)
             }
-        } else {
-            res.status(400).json({ message: 'Please make sure password is at least 8 characters long and make sure username does not already exist' })
-        }
-
-
-    } catch (error) {
-        res.status(400).json(error);
-        console.log(error)
-    }
 });
 
 module.exports = router;
