@@ -4,7 +4,7 @@ const display = $('#display')
 display.text('');
 
 
-try {
+
 const loginHandler = async (event) => {
     event.preventDefault();    
     const email = $('#login-email').val().trim();
@@ -21,24 +21,13 @@ const loginHandler = async (event) => {
         display.text(`${data.message}`)
     return  $('#display-div').append(display);
     }
-
-    document.location.replace('/');
-    
-        // if (response.ok) {
-        //     // replace login page with home page
-        //     document.location.replace('/');
-            
-        // } else {
-        //     alert('You are unable to login');
-        // }
+    document.location.replace('/');       
     }
 }
 
 $('#login-form').on('submit', loginHandler);
-} catch (error) {
-    console.log(error)
-}
+
 
 $('#signupBtn').on('click', () => {
-    document.location.replace('/api/signup')
+    document.location.replace('/signup')
 })
