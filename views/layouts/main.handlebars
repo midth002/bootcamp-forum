@@ -5,36 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/post.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Bootcamp Forum</title>
 </head>
 <body>
     <header>
-        <div class="jumbotron jumbotron-fluid mb-0">
+        <div class="jumbotron jumbotron-fluid mb-0 custom-jumbotron">
             <div class="container">
-                <h1 class="display-4">Bootcamp Forum</h1>
-                <p class="lead">share stuff about stuff</p>
+                <h1 class="display-4 custom-text">Bootcamp Forum</h1>
+                <p class="lead custom-text">Ask, Share, Connect</p>
             </div>            
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
             <div class="container">
-                <a class="navbar-brand" href="#">BCF</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar custom-brand" href="/">BCF</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active" href="/">Home</a>
-                        <a class="nav-link" href="api/messages">Posts</a>
-                        {{#if logged_in}}
-                        <a class="nav-link" id="logout">Logout</a>
-                        {{else}}
+                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/messages">Posts</a>                                             
                         <a class="nav-link" href="/login">Login</a>
-                        {{/if}}
+                        
                     </div>
                 </div>
+            </div>            
+            <div class="justify-content-right">
+                <a id="logout-div" class="text-decoration-none text-muted" role="button">Logout</a>
             </div>
-        </nav>
+        </nav>        
     </header>    
     <main>
         <div class="container mt-3">

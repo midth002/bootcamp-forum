@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     try{
         const messageData = await Post.findAll()
             const messages = messageData.map((post) => post.get({ plain: true }));
-            res.render('posts', { messages });
+            res.render('home', { messages });
 
     }catch (err) {
         res.status(500).json(err);

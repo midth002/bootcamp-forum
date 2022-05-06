@@ -1,0 +1,21 @@
+.custom-jumbotron {
+    background-color: rgb(161, 202, 241);    
+}
+
+.custom-navbar {
+    background-color: rgb(250, 243, 221);
+}
+
+.custom-btn {
+    background-color: rgb(161, 202, 241);
+}
+
+.custom-brand {
+    font-size: 24px;
+    color: rgb(104, 176, 171)
+}
+
+.custom-text {
+    font-family: Arial, Verdana, sans-serif;
+    font-weight: normal;
+}
