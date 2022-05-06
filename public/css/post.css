@@ -1,3 +1,24 @@
+
+
+.head {
+    background-image: url("https://gust-production.s3.amazonaws.com/uploads/startup/panoramic_image/911706/jumbotron-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-text{
+    font-weight: bolder;
+}
+
+.post-title {
+    font-size: larger;
+    font-weight: bolder;
+}
+.add-post {
+    float: right;
+    position: relative;
+    bottom: 40px;
+}
 .post-card {
     margin: 20px
 }
